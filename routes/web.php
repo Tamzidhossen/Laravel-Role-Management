@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,3 +14,11 @@ Route::get('dashboard', function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+Route::get('/role', [RoleController::class, 'Role'])->name('role')->middleware('auth');
+
+Route::get('admin-only', [RoleController::class, 'OnlyForAdmin'])->middleware('can:admin');
+Route::get('editor-only', [RoleController::class, 'OnlyForEditor'])->middleware('can:editor');
+Route::get('author-only', [RoleController::class, 'OnlyForAuthor'])->middleware('can:author');
+
+Route::get('/secret', [RoleController::class, 'Secret'])->middleware('can:secret');
