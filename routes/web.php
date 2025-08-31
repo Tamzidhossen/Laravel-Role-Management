@@ -22,3 +22,4 @@ Route::get('editor-only', [RoleController::class, 'OnlyForEditor'])->middleware(
 Route::get('author-only', [RoleController::class, 'OnlyForAuthor'])->middleware('can:author');
 
 Route::get('/secret', [RoleController::class, 'Secret'])->middleware('can:secret');
+Route::get('blog-dashboard', [RoleController::class, 'BlogDashboard'])->middleware('auth');

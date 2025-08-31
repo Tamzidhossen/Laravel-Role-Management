@@ -25,4 +25,8 @@ class RoleController extends Controller
     public function Secret(){
         return 'Secret Only';
     }
+
+    public function BlogDashboard(){
+        return view('blog-dashboard');
+    }
 }
