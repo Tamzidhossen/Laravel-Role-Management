@@ -20,6 +20,7 @@ Route::get('/role', [RoleController::class, 'Role'])->name('role')->middleware('
 Route::get('admin-only', [RoleController::class, 'OnlyForAdmin'])->middleware('can:admin');
 Route::get('editor-only', [RoleController::class, 'OnlyForEditor'])->middleware('can:editor');
 Route::get('author-only', [RoleController::class, 'OnlyForAuthor'])->middleware('can:author');
+Route::get('user-only', [RoleController::class, 'OnlyForUser'])->middleware('can:xUser');
 
 Route::get('/secret', [RoleController::class, 'Secret'])->middleware('can:secret');
 Route::get('blog-dashboard', [RoleController::class, 'BlogDashboard'])->middleware('auth');

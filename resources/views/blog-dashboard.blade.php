@@ -25,6 +25,9 @@
         <li><a href="#">Pages</a></li>
         <li><a href="#">Comments</a></li>
         @endcan
+        @can('xUser')
+            User Not Permission Access! Please Get Access in Admin.
+        @endcan
     </ul>
 </body>
 </html>

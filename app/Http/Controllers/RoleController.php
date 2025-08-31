@@ -15,15 +15,23 @@ class RoleController extends Controller
     public function OnlyForAdmin(){
         return 'Admin Only';
     }
+
     public function OnlyForEditor(){
         return 'Editor Only';
     }
+
     public function OnlyForAuthor(){
         return 'Author Only';
     }
+
+    public function OnlyForUser(){
+        return 'User Only';
+    }
     
     public function Secret(){
-        return 'Secret Only';
+        return response()->json([
+            'message' => 'Secret Message',
+        ]);
     }
 
     public function BlogDashboard(){
