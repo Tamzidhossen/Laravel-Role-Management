@@ -28,13 +28,6 @@ Route::get('blog-dashboard', [RoleController::class, 'BlogDashboard'])->middlewa
 
 
 //Login Logout Using JWT
-Route::get('/LoginPage', [AuthController::class, 'LoginPage'])->name('LoginPage');
-Route::get('/RegistationPage', [AuthController::class, 'RegistationPage'])->name('RegistationPage');
+Route::get('/LoginPage', [AuthController::class, 'LoginPage'])->name('login.page');
+Route::get('/RegistationPage', [AuthController::class, 'RegistationPage'])->name('registation.page');
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
-
-Route::middleware('auth:api')->group(function () {
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('me', [AuthController::class, 'me']);
-});

@@ -20,29 +20,29 @@
     <h2 class="text-center text-2xl font-semibold text-gray-800 mb-6">Create a SqrEloquent Account</h2>
     
     <!-- Form -->
-    <form action="{{ route('register') }}" method="POST" class="space-y-5">
+    <form action="{{ route('auth.register') }}" method="POST" class="space-y-5">
       @csrf
       <div>
         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-        <input id="username" type="text" required placeholder="Choose a username"
+        <input name="name" id="username" type="text" required placeholder="Choose a username"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"/>
       </div>
 
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input id="email" type="email" required placeholder="your@example.com"
+        <input name="email" type="email" required placeholder="your@example.com"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"/>
       </div>
 
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-        <input id="password" type="password" required placeholder="••••••••"
+        <input id="password" name="password" type="password" required placeholder="••••••••"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"/>
       </div>
 
       <div>
-        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-        <input id="password_confirmation" type="password" required placeholder="••••••••"
+        <label for="password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input id="password_confirmation" name="password_confirmation" type="password" required placeholder="••••••••"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"/>
       </div>
 
@@ -61,7 +61,7 @@
 
     <p class="text-center text-sm text-gray-600 mt-6">
       Already have an account?
-      <a href="{{ route('LoginPage') }}" class="text-yellow-600 hover:underline">Sign in</a>
+      <a href="{{ route('login.page') }}" class="text-yellow-600 hover:underline">Sign in</a>
     </p>
   </div>
 </body>

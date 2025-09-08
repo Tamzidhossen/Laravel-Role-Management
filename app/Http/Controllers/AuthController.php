@@ -10,7 +10,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-    public function AuthLoginPage(){
+    public function LoginPage(){
         return view('auth.login');
     }
 
@@ -33,11 +33,11 @@ class AuthController extends Controller
 
         $token = JWTAuth::fromUser($user);
 
-        return response()->json([
-            'user' => $user,
-            'token' => $token,
-        ], 201);
-        // return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
+        // return response()->json([
+        //     'user' => $user,
+        //     'token' => $token,
+        // ], 201);
+        return redirect()->route('login.page');
     }
 
     public function login(Request $request)

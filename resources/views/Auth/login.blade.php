@@ -15,15 +15,16 @@
       </svg>
     </div>
     <h2 class="text-center text-2xl font-semibold text-gray-800 mb-6">Sign In to LeetCode</h2>
-    <form action="#" method="POST" class="space-y-5">
+    <form action="{{ route('auth.login') }}" method="POST" class="space-y-5">
+      @csrf
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input id="email" type="email" required placeholder="your@leetcode.com"
+        <input name="email" type="email" required placeholder="your@leetcode.com"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
       </div>
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-        <input id="password" type="password" required placeholder="••••••••"
+        <input name="password" type="password" required placeholder="••••••••"
                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
       </div>
       <div class="flex items-center justify-between text-sm">
@@ -40,7 +41,7 @@
     </form>
     <p class="text-center text-sm text-gray-600 mt-6">
       New to LeetCode?
-      <a href="{{ route('register') }}" class="text-indigo-600 hover:underline">Sign up</a>
+      <a href="{{ route('registation.page') }}" class="text-indigo-600 hover:underline">Sign up</a>
     </p>
   </div>
 </body>
