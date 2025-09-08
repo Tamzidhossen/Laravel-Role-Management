@@ -6,8 +6,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -56,5 +57,14 @@ class User extends Authenticatable
 
     public function hasAnyRole($roles) {                   //['Admin', 'Editor', 'Author']
         return $this->roles()->whereIn('name', $roles)->exists();
+    }
+
+    //JWT Auth
+    function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    function getJWTCustomClaims() {
+        return [];
     }
 }
